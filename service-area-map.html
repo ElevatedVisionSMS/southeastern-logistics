@@ -12,11 +12,14 @@
   #map { width:100%; height:100%; background:#dfe6ec; }
   .leaflet-container { font-family:'Work Sans',sans-serif; }
   .sl-pin {
-    background:#0154b1; color:#fff; border:2px solid #fff;
-    border-radius:50%; width:14px; height:14px; box-sizing:border-box;
-    box-shadow:0 2px 6px rgba(0,0,0,0.35);
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; box-sizing:border-box;
+    color:#0154b1; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35));
   }
-  .sl-pin.port { background:#e8a33d; width:18px; height:18px; }
+  .sl-dot {
+    width:12px; height:12px; border-radius:50%; background:#0154b1;
+    border:2px solid #fff; box-sizing:border-box; box-shadow:0 1px 4px rgba(0,0,0,0.3);
+  }
   .sl-label {
     font-family:'Barlow Condensed',sans-serif; font-weight:800;
     text-transform:uppercase; letter-spacing:0.05em; font-size:13px;
@@ -24,28 +27,27 @@
     border-radius:3px; white-space:nowrap; border:1px solid rgba(1,84,177,0.25);
   }
   .sl-legend {
-    font-family:'Work Sans',sans-serif; font-size:12px; line-height:1.7;
-    background:rgba(255,255,255,0.94); padding:10px 12px; border-radius:4px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.15); color:#1a1a1a;
+    font-family:'Work Sans',sans-serif; font-size:11px; line-height:1.5;
+    background:rgba(255,255,255,0.92); padding:6px 8px; border-radius:3px;
+    box-shadow:0 1px 5px rgba(0,0,0,0.12); color:#1a1a1a; white-space:nowrap;
   }
-  .sl-legend b { font-family:'Barlow Condensed',sans-serif; text-transform:uppercase;
-    letter-spacing:0.07em; font-size:12px; display:block; margin-bottom:6px; color:#0154b1; }
-  .sl-legend i { display:inline-block; width:10px; height:10px; border-radius:50%;
-    margin-right:7px; vertical-align:middle; border:1.5px solid #fff;
-    box-shadow:0 0 0 1px rgba(0,0,0,0.12); }
+  .sl-legend i { display:inline-block; width:8px; height:8px; border-radius:50%;
+    margin-right:6px; vertical-align:middle; background:#0154b1; }
 </style>
 </head>
 <body>
 <div id="map"></div>
 <script>
   var LOCATIONS = [
-    { name: 'West Palm Beach', lat: 26.7153, lng: -80.0534, port: false, dir: 'right' },
-    { name: 'Port Everglades', lat: 26.0917, lng: -80.1189, port: true,  dir: 'right' },
-    { name: 'Fort Lauderdale', lat: 26.1224, lng: -80.1373, port: false, dir: 'left'  },
-    { name: 'Miami',           lat: 25.7743, lng: -80.1937, port: false, dir: 'left'  },
-    { name: 'Port of Miami',   lat: 25.7770, lng: -80.1710, port: true,  dir: 'right' },
-    { name: 'Port of Tampa',   lat: 27.9420, lng: -82.4450, port: true,  dir: 'left'  }
+    { name: 'Port Everglades', lat: 26.0917, lng: -80.1189, dir: 'right' },
+    { name: 'Port of Miami',   lat: 25.7770, lng: -80.1710, dir: 'right' },
+    { name: 'Port of Tampa',   lat: 27.9420, lng: -82.4450, dir: 'left'  },
+    { name: '',                lat: 30.3322, lng: -81.6557, dir: 'left', metro: true }
   ];
+
+  var SHIP_SVG = '<svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">' +
+    '<path d="M12 2.3l1.4 2.4h-2.8L12 2.3zM11.3 5.6h1.4v2.2h3.1c.5 0 .9.4.9.9v1.9l2.6.8c.5.2.8.7.7 1.2l-1.1 4.2a3.4 3.4 0 01-3.3 2.5H8.4a3.4 3.4 0 01-3.3-2.5L4 12.6c-.1-.5.2-1 .7-1.2l2.6-.8V8.7c0-.5.4-.9.9-.9h3.1V5.6zM9 9.6v.6l3-.9 3 .9V9.6H9z"/>' +
+    '<path d="M4.2 19.4c1.3 0 1.9.8 3.2.8s1.9-.8 3.2-.8 1.9.8 3.2.8 1.9-.8 3.2-.8 1.9.8 3.2.8v1.6c-1.3 0-1.9-.8-3.2-.8s-1.9.8-3.2.8-1.9-.8-3.2-.8-1.9.8-3.2.8-1.9-.8-3.2-.8v-1.6z"/></svg>';
 
   var map = L.map('map', {
     zoomControl: true,
@@ -59,14 +61,14 @@
   }).addTo(map);
 
   var bounds = L.latLngBounds(LOCATIONS.map(function (l) { return [l.lat, l.lng]; }));
-  map.fitBounds(bounds, { paddingTopLeft: [70, 40], paddingBottomRight: [140, 40] });
+  map.fitBounds(bounds, { paddingTopLeft: [80, 40], paddingBottomRight: [130, 50] });
 
   LOCATIONS.forEach(function (l) {
-    var size = l.port ? 18 : 14;
+    var size = l.metro ? 12 : 34;
     L.marker([l.lat, l.lng], {
       icon: L.divIcon({
         className: '',
-        html: '<div class="sl-pin' + (l.port ? ' port' : '') + '"></div>',
+        html: l.metro ? '<div class="sl-dot"></div>' : '<div class="sl-pin">' + SHIP_SVG + '</div>',
         iconSize: [size, size],
         iconAnchor: [size / 2, size / 2]
       }),
@@ -74,24 +76,24 @@
       title: l.name
     }).addTo(map);
 
+    if (!l.name) return;
+
     L.marker([l.lat, l.lng], {
       icon: L.divIcon({
         className: '',
         html: '<span class="sl-label">' + l.name + '</span>',
         iconSize: null,
-        iconAnchor: l.dir === 'left' ? [l.name.length * 7.4 + 24, 8] : [-14, 8]
+        iconAnchor: l.dir === 'left' ? [l.name.length * 7.4 + 30, 8] : [-20, 8]
       }),
       interactive: false,
       keyboard: false
     }).addTo(map);
   });
 
-  var legend = L.control({ position: 'topright' });
+  var legend = L.control({ position: 'bottomleft' });
   legend.onAdd = function () {
     var d = L.DomUtil.create('div', 'sl-legend');
-    d.innerHTML = '<b>Service Area</b>' +
-      '<div><i style="background:#e8a33d"></i>Credentialed port terminals</div>' +
-      '<div><i style="background:#0154b1"></i>Metro coverage</div>';
+    d.innerHTML = '<div><i></i>Credentialed port terminals</div>';
     return d;
   };
   legend.addTo(map);
