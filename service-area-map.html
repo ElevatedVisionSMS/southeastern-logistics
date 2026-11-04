@@ -16,6 +16,8 @@
     width:34px; height:34px; box-sizing:border-box;
     color:#0154b1; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35));
   }
+  .sl-pin.hl { color:#e07a1f; }
+  .sl-label.hl { background:#e07a1f; color:#fff; border-color:#e07a1f; }
   .sl-dot {
     width:12px; height:12px; border-radius:50%; background:#0154b1;
     border:2px solid #fff; box-sizing:border-box; box-shadow:0 1px 4px rgba(0,0,0,0.3);
@@ -42,7 +44,8 @@
     { name: 'Port Everglades', lat: 26.0917, lng: -80.1189, dir: 'right' },
     { name: 'Port of Miami',   lat: 25.7770, lng: -80.1710, dir: 'right' },
     { name: 'Port of Tampa',   lat: 27.9420, lng: -82.4450, dir: 'left'  },
-    { name: 'Port of Savannah', lat: 32.1287, lng: -81.1519, dir: 'right' },
+    { name: 'Port of Savannah', lat: 32.1287, lng: -81.1519, dir: 'right', hl: true },
+    { name: '',                lat: 32.0809, lng: -81.0912, dir: 'left', metro: true },
     { name: '',                lat: 30.3322, lng: -81.6557, dir: 'left', metro: true }
   ];
 
@@ -69,7 +72,7 @@
     L.marker([l.lat, l.lng], {
       icon: L.divIcon({
         className: '',
-        html: l.metro ? '<div class="sl-dot"></div>' : '<div class="sl-pin">' + SHIP_SVG + '</div>',
+        html: l.metro ? '<div class="sl-dot"></div>' : '<div class="sl-pin' + (l.hl ? ' hl' : '') + '">' + SHIP_SVG + '</div>',
         iconSize: [size, size],
         iconAnchor: [size / 2, size / 2]
       }),
@@ -82,7 +85,7 @@
     L.marker([l.lat, l.lng], {
       icon: L.divIcon({
         className: '',
-        html: '<span class="sl-label">' + l.name + '</span>',
+        html: '<span class="sl-label' + (l.hl ? ' hl' : '') + '">' + l.name + '</span>',
         iconSize: null,
         iconAnchor: l.dir === 'left' ? [l.name.length * 7.4 + 30, 8] : [-20, 8]
       }),
