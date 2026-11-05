@@ -483,12 +483,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input type="text" name="Name" required="" autoComplete="name" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
           <label style="display:block;">
+            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Company (optional)</span>
+            <input type="text" name="Company" autoComplete="organization" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
+          </label>
+          <label style="display:block;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Email *</span>
             <input type="email" name="Email" required="" autoComplete="email" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
           <label style="display:block;">
-            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Phone</span>
-            <input type="tel" name="Phone" autoComplete="tel" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
+            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Phone *</span>
+            <input type="tel" name="Phone" required="" autoComplete="tel" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
           <label style="display:block;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Service *</span>
@@ -507,12 +511,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </select>
           </label>
           <label style="display:block;">
-            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Pickup location *</span>
-            <input type="text" name="Pickup location" required="" placeholder="Port, city, or ZIP code" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
+            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Pickup location</span>
+            <input type="text" name="Pickup location" placeholder="Port, city, or ZIP code" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
           <label style="display:block;">
-            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Delivery location *</span>
-            <input type="text" name="Delivery location" required="" placeholder="City or ZIP code" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
+            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Delivery location</span>
+            <input type="text" name="Delivery location" placeholder="City or ZIP code" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
           <label style="display:block;grid-column:1/-1;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Requested pickup date</span>
@@ -525,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div id="quote-status" style="display:none;grid-column:1/-1;background:#fff;border:1px solid #d9dde3;padding:16px;font-size:14.5px;color:#1a1a1a;border-radius:2px;"></div>
           <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
             <button type="submit" class="hdr" style="background:#0154b1;color:#fff;border:none;font-weight:700;font-size:17px;letter-spacing:0.03em;padding:16px 30px;border-radius:2px;cursor:pointer;">Request a Quote</button>
-            <span style="color:#5a5650;font-size:13.5px;">We reply with a quote within 24 hours. For urgent requests, please call us at (305) 773-3091.</span>
+            <span style="color:#5a5650;font-size:13.5px;">Responses within 24 hours. Urgent? Call <a href="tel:+13057733091" style="color:#0154b1;font-weight:700;">(305) 773-3091</a></span>
           </div>
         </form>
     </div>
@@ -616,7 +620,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var get = function (k) { return (d.get(k) || '').toString().trim(); };
     var subject = 'Quote Request: ' + (get('Pickup location') || '-') + ' to ' + (get('Delivery location') || '-');
     var body = 'Hello Kelvin,\n\nI would like a quote for the following shipment:\n\n' +
-      ['Name', 'Email', 'Phone', 'Service', 'Pickup location', 'Delivery location', 'Requested pickup date']
+      ['Name', 'Company', 'Email', 'Phone', 'Service', 'Pickup location', 'Delivery location', 'Requested pickup date']
         .map(function (k) { return k + ': ' + get(k); }).join('\n') +
       '\n\nFreight details:\n' + get('Freight details') + '\n\nThank you.';
     window.location.href = 'mailto:kelvin@southeasternlogistics.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
