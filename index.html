@@ -494,7 +494,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Phone *</span>
             <input type="tel" name="Phone" required="" autoComplete="tel" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
-          <label style="display:block;">
+          <label style="display:block;grid-column:1/-1;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Service *</span>
             <select name="Service" required="" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
               <optgroup label="Container Drayage" style="color:#0154b1;font-weight:700;font-style:normal;">
@@ -518,9 +518,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Delivery location</span>
             <input type="text" name="Delivery location" placeholder="City or ZIP code" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
-          <label style="display:block;grid-column:1/-1;">
+          <label style="display:block;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Requested pickup date</span>
             <input type="date" name="Requested pickup date" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
+          </label>
+          <label style="display:block;">
+            <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Requested delivery date</span>
+            <input type="date" name="Requested delivery date" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
           </label>
           <label style="display:block;grid-column:1/-1;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Freight details *</span>
@@ -620,7 +624,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var get = function (k) { return (d.get(k) || '').toString().trim(); };
     var subject = 'Quote Request: ' + (get('Pickup location') || '-') + ' to ' + (get('Delivery location') || '-');
     var body = 'Hello Kelvin,\n\nI would like a quote for the following shipment:\n\n' +
-      ['Name', 'Company', 'Email', 'Phone', 'Service', 'Pickup location', 'Delivery location', 'Requested pickup date']
+      ['Name', 'Company', 'Email', 'Phone', 'Service', 'Pickup location', 'Delivery location', 'Requested pickup date', 'Requested delivery date']
         .map(function (k) { return k + ': ' + get(k); }).join('\n') +
       '\n\nFreight details:\n' + get('Freight details') + '\n\nThank you.';
     window.location.href = 'mailto:kelvin@southeasternlogistics.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
