@@ -107,6 +107,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-right { flex-wrap: wrap !important; }
   }
   @media (max-width: 760px) { .q-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+  .rv-viewport { overflow: hidden; }
+  .rv-track { display: flex; gap: 28px; transition: transform 1.4s ease-in-out; will-change: transform; }
+  .rv-card { flex: 0 0 calc((100% - 56px) / 3); min-width: 0; box-sizing: border-box; }
+  @media (max-width: 760px) { .rv-card { flex-basis: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .rv-track { transition: none; } }
   @keyframes partnerFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   .partner-logo { animation: partnerFloat 3.6s ease-in-out infinite; }
 </style>
@@ -419,35 +424,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hdr reveal" style="color:#4a90e2;font-size:15px;font-weight:700;letter-spacing:0.12em;margin-bottom:12px;">CUSTOMER REVIEWS</div>
         <h2 class="hdr reveal" style="color:#fff;font-size:38px;font-weight:800;margin:0;transition-delay:0.08s;">Service that customers remember</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;">
+      <div class="rv-viewport"><div class="rv-track">
 <!-- GOOGLE_REVIEWS:START -->
-        <div class="reveal-up" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.00s;">
+        <div class="reveal-up rv-card" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.00s;">
           <div style="display:flex;gap:2px;margin:0 0 14px;color:#e8a33d;font-size:15px;letter-spacing:1px;" aria-label="5 out of 5 stars">★★★★★</div>
           <p style="font-size:15.5px;line-height:1.65;color:#dfe3e6;margin:0 0 20px;">&ldquo;Excellent service from Southeastern Logistics. Their team has been reliable, responsive, and professional throughout our time-sensitive courier needs. Communication has been clear, pickups have been handled efficiently, and they have consistently shown strong attention to detail and flexibility when coordinating longer-distance deliveries across Florida. We truly appreciate the level of service and dependability they provide. Highly recommended.&rdquo;</p>
           <div style="font-weight:700;font-size:14.5px;color:#fff;">Walter Nunez</div>
           <div style="color:#8a857d;font-size:13.5px;">Google review &middot; a month ago</div>
         </div>
-        <div class="reveal-up" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.08s;">
+        <div class="reveal-up rv-card" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.08s;">
           <div style="display:flex;gap:2px;margin:0 0 14px;color:#e8a33d;font-size:15px;letter-spacing:1px;" aria-label="5 out of 5 stars">★★★★★</div>
           <p style="font-size:15.5px;line-height:1.65;color:#dfe3e6;margin:0 0 20px;">&ldquo;South Eastern Logistics Company exceeded all my expectations! Their team was incredibly professional, punctual, and efficient. From start to finish, the communication was clear, and they handled everything with care and precision. The delivery was on time, and the entire process was seamless. I highly recommend their services to anyone needing reliable logistics solutions! Great job!&rdquo;</p>
           <div style="font-weight:700;font-size:14.5px;color:#fff;">Javier C. (Sunshine Tire Recycling)</div>
           <div style="color:#8a857d;font-size:13.5px;">Google review &middot; a year ago</div>
         </div>
-        <div class="reveal-up" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.16s;">
+        <div class="reveal-up rv-card" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.16s;">
           <div style="display:flex;gap:2px;margin:0 0 14px;color:#e8a33d;font-size:15px;letter-spacing:1px;" aria-label="5 out of 5 stars">★★★★★</div>
           <p style="font-size:15.5px;line-height:1.65;color:#dfe3e6;margin:0 0 20px;">&ldquo;We recently used this logistics company for an LTL shipment for our picnic business, and the experience was outstanding from start to finish. The team was professional, responsive, and kept us informed throughout the entire process. Our shipment arrived on time, in perfect condition, and was handled with great care.&rdquo;</p>
           <div style="font-weight:700;font-size:14.5px;color:#fff;">Gradiz Atelier</div>
           <div style="color:#8a857d;font-size:13.5px;">Google review &middot; 3 months ago</div>
         </div>
 
-        <div class="reveal-up" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.24s;">
+        <div class="reveal-up rv-card" style="background:#111111;padding:32px;border-left:3px solid #0154b1;transition-delay:0.24s;">
           <div style="display:flex;gap:2px;margin:0 0 14px;color:#e8a33d;font-size:15px;letter-spacing:1px;" aria-label="5 out of 5 stars">★★★★★</div>
           <p style="font-size:15.5px;line-height:1.65;color:#dfe3e6;margin:0 0 20px;">&ldquo;Outstanding service from Kelvin and team! I highly recommend Southeastern Logistics for refrigerated container drayage. I normally import frozen seafood through Savannah's Garden City Terminal and was unfamiliar with South Florida port operations. After another carrier failed to follow through, costing me demurrage fees, I found Kelvin from Southeastern Logistics on LinkedIn. Kelvin was exceptionally knowledgeable, coordinated everything seamlessly from pickup to delivery, and kept me informed at every step. His drivers were punctual, professional, and kept my frozen shrimp cargo at proper temperatures using gen-sets. They also returned the empty containers on time, saving us from costly detention fees. What started as a stressful nightmare turned into a completely seamless operation. Top-notch service!&rdquo;</p>
           <div style="font-weight:700;font-size:14.5px;color:#fff;">Prime Seafood</div>
           <div style="color:#8a857d;font-size:13.5px;">Google review &middot; 1 week ago</div>
         </div>
       <!-- GOOGLE_REVIEWS:END -->
-      </div>
+      </div></div>
     </div>
   </div>
 
@@ -684,6 +689,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return false;
   };
 
+</script>
+<script>
+(function () {
+  var vp = document.querySelector('.rv-viewport');
+  var track = document.querySelector('.rv-track');
+  if (!vp || !track) return;
+  var cards = [].slice.call(track.querySelectorAll('.rv-card'));
+  var n = cards.length;
+  if (n < 2) return;
+  // Clone the first three cards at the end so the loop looks seamless.
+  for (var c = 0; c < 3 && c < n; c++) {
+    var clone = cards[c].cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.classList.remove('reveal-up');
+    clone.style.transition = 'none';
+    track.appendChild(clone);
+  }
+  var index = 0, timer = null, gap = 28;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function step() {
+    var w = cards[0].getBoundingClientRect().width + gap;
+    track.style.transform = 'translateX(' + (-index * w) + 'px)';
+  }
+  function next() {
+    index++;
+    track.style.transition = '';
+    step();
+    if (index === n) {
+      track.addEventListener('transitionend', function reset() {
+        track.removeEventListener('transitionend', reset);
+        track.style.transition = 'none';
+        index = 0;
+        step();
+        track.offsetHeight; // force reflow before re-enabling the transition
+        track.style.transition = '';
+      });
+    }
+  }
+  function start() { if (!reduce && !timer) timer = setInterval(next, 6000); }
+  function stop() { clearInterval(timer); timer = null; }
+  vp.addEventListener('mouseenter', stop);
+  vp.addEventListener('mouseleave', start);
+  vp.addEventListener('focusin', stop);
+  vp.addEventListener('focusout', start);
+  window.addEventListener('resize', step);
+  start();
+})();
 </script>
 </body>
 </html>
