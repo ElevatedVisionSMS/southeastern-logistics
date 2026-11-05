@@ -493,12 +493,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label style="display:block;">
             <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:7px;">Service *</span>
             <select name="Service" required="" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #d9dde3;background:#fff;color:#1a1a1a;font-family:'Work Sans',sans-serif;font-size:15px;border-radius:2px;">
-              <option>Container drayage (port &amp; rail)</option>
-              <option>LTL / FTL freight</option>
-              <option>Last-mile delivery</option>
-              <option>Refrigerated transport</option>
-              <option>Hazmat / overweight</option>
-              <option>Storage &amp; yard space</option>
+              <optgroup label="Container Drayage">
+                <option>Dry container</option>
+                <option>Refrigerated container</option>
+              </optgroup>
+              <option>LTL &amp; FTL</option>
+              <option>Last-Mile Delivery</option>
+              <optgroup label="Cargo Storage">
+                <option>Cold Storage / Warehousing</option>
+                <option>Yard Space / Container Storage</option>
+              </optgroup>
               <option>Other</option>
             </select>
           </label>
@@ -521,7 +525,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div id="quote-status" style="display:none;grid-column:1/-1;background:#fff;border:1px solid #d9dde3;padding:16px;font-size:14.5px;color:#1a1a1a;border-radius:2px;"></div>
           <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;">
             <button type="submit" class="hdr" style="background:#0154b1;color:#fff;border:none;font-weight:700;font-size:17px;letter-spacing:0.03em;padding:16px 30px;border-radius:2px;cursor:pointer;">Request a Quote</button>
-            <span style="color:#5a5650;font-size:13.5px;">We reply with a quote the same business day.</span>
+            <span style="color:#5a5650;font-size:13.5px;">We reply with a quote within 24 hours. For urgent requests, please call us at (305) 773-3091.</span>
           </div>
         </form>
     </div>
