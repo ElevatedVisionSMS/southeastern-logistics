@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" role="img" aria-labelledby="t d">
+  <title id="t">Reefer seafood route from Chile to South Florida</title>
+  <desc id="d">Graphic showing a shipping route from San Antonio, Chile to PortMiami, Florida.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2540"/>
+      <stop offset="1" stop-color="#0154b1"/>
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ffffff" stroke-opacity="0.07"/>
+    </pattern>
+  </defs>
+  <rect width="1100" height="500" fill="url(#bg)"/>
+  <rect width="1100" height="500" fill="url(#grid)"/>
+  <path d="M170 330 C 380 90, 720 420, 930 230" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="14 12" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="170" cy="330" r="14" fill="#4d9bff"/>
+  <circle cx="170" cy="330" r="30" fill="none" stroke="#4d9bff" stroke-opacity="0.5" stroke-width="3"/>
+  <circle cx="930" cy="230" r="14" fill="#4d9bff"/>
+  <circle cx="930" cy="230" r="30" fill="none" stroke="#4d9bff" stroke-opacity="0.5" stroke-width="3"/>
+  <text x="170" y="402" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#ffffff">San Antonio, Chile</text>
+  <text x="930" y="180" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#ffffff">PortMiami, Florida</text>
+  <text x="550" y="120" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="4" fill="#9fc8ff">REEFER SEAFOOD IMPORTS</text>
+  <text x="550" y="462" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="3" fill="#ffffff" fill-opacity="0.75">SOUTHEASTERN LOGISTICS</text>
+</svg>
